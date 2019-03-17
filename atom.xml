@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Hexo</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2019-03-17T14:30:31.323Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>John Doe</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>git和github使用教程</title>
+    <link href="http://yoursite.com/2019/02/15/git-and-github-tutorial/"/>
+    <id>http://yoursite.com/2019/02/15/git-and-github-tutorial/</id>
+    <published>2019-02-15T13:31:54.000Z</published>
+    <updated>2019-03-17T14:30:31.323Z</updated>
+    
+    <content type="html"><![CDATA[<p>本篇博客为udacity课程<a href="https://classroom.udacity.com/courses/ud775" target="_blank" rel="noopener">如何使用Git和Github</a>的学习笔记。</p><h1 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h1><p>本课程分三节：</p><ol><li>版本控制的作用，各版本控制系统</li><li>学习并使用Git</li><li>学习如何使用Github</li></ol><p>Git是一种版本控制系统。Github则是一个代码共享和合作平台。</p><h1 id="版本控制"><a href="#版本控制" class="headerlink" title="版本控制"></a>版本控制</h1><h2 id="比较两个文件之间的差异"><a href="#比较两个文件之间的差异" class="headerlink" title="比较两个文件之间的差异"></a>比较两个文件之间的差异</h2><p>手动比较文件差异：</p><ul><li>乏味无聊，大文件比较可能要花很久<br>借助计算机：</li><li>Windows： FC old_file new_file</li><li>Linux/Mac: diff -u old_file new_file<br>(-u stands for unified format and it will make the output a little easier to read.)<h2 id="版本来自哪里？"><a href="#版本来自哪里？" class="headerlink" title="版本来自哪里？"></a>版本来自哪里？</h2></li><li>手动保存副本</li><li>Dropbox</li><li>Google Docs</li><li>Wikipedia<br><strong>思考：</strong> 从长远来看，能轻松访问文件的整个历史记录将如何提高编程者的效率？</li></ul><ol><li>误删一些文件内容时可以查看旧文件复原。</li><li>项目遇到不可复原的bug时可以从旧版本处重新再做。</li><li>重拾项目时可以从旧版本看起，逐步回忆，可以快速上手。</li></ol><h1 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h1><h2 id="为什么要使用Git"><a href="#为什么要使用Git" class="headerlink" title="为什么要使用Git"></a>为什么要使用Git</h2><p>Dropbox或Google Docs等工具确实可以保存各版本，但它们并不是为代码版本控制而设计的：</p><ol><li>Dropbox和Google Docs都不支持离线保存版本</li><li>Google Docs不支持使用自带编辑器<img src="/2019/02/15/git-and-github-tutorial/Selection_010.png"></li></ol><p>Git允许用户自己提交。自动保存更改虽然看起来很方便，但是手动提交更可能使每个版本代表一个逻辑更改。<br>在Git术语中，这些由用户创建的提交成为commits，每个commit代表一个时间点的版本</p><h2 id="如何使用Git"><a href="#如何使用Git" class="headerlink" title="如何使用Git"></a>如何使用Git</h2><h3 id="克隆版本库"><a href="#克隆版本库" class="headerlink" title="克隆版本库"></a>克隆版本库</h3><p>要克隆版本库，请运行 git clone（后跟空格和版本库 URL）</p><h3 id="创建和修改代码库（Repository）"><a href="#创建和修改代码库（Repository）" class="headerlink" title="创建和修改代码库（Repository）"></a>创建和修改代码库（Repository）</h3><p><strong>初始化</strong><br>打开命令行，在你的项目根目录下输入git init<br><strong>文件状态</strong><br><img src="/2019/02/15/git-and-github-tutorial/Selection_002.png" title="文件状态"></p><p><strong>将文件添加到暂存区</strong>g：it add file_name<br><strong>将当前目录所有文件添加到暂存区</strong>：git add .<br>如果你意外地将某个文件添加到暂存区中，可以使用 git reset 删除它。例如，如果你意外地添加了 lesson_2_reflections.txt，但不想提交它，请运行 git reset lesson_2_reflections.txt，此命令会从暂存区中删除该文件，但它仍在你的工作目录中。</p><p><strong>将暂存区中的内容提交到代码库中</strong>：git commit -m “the commit message you want to tell”</p><p><strong>(提交信息的风格)</strong><br>虽然提交信息的风格因人而异，但此风格指南<br><a href="https://udacity.github.io/git-styleguide/" target="_blank" rel="noopener">https://udacity.github.io/git-styleguide/</a><br>介绍了在编写提交信息时的一些常见最佳做法。</p><p><strong>为每项合逻辑的更改进行一次提交</strong><br><strong>提交频率</strong><br>由于可以选择何时进行提交，因此，你可能想知道该多久提交一次更改。保持较小的提交通常是一个好做法。随着两个版本之间的差异越来越大，易于理解性和实用性都会越来越低。但是，你也不希望使提交过小。如果总是在每次更改一行代码后保存提交，则历史记录会因短时间内包含大量提交而变得难以读懂。<br><strong>为每项逻辑更改进行一次提交是很好的经验法则。</strong>例如，如果改正了一处打字错误，然后在文件的另一部分中改正了一个错误，则应为每项更改进行一次提交，因为这两项更改在逻辑上是独立的。如果这样做，每次提交都将具有一个易于理解的目的。Git 允许你在每次提交时都编写一条简短的信息来说明更改了什么。如果每次提交都包含一项逻辑更改，这条信息会更有用。<br><strong>提交大小练习</strong><br>在下一个练习中，你要思考隔多久提交一次，并标明你是否认为以下是合适的提交大小。如果不是，则指出你是否认为此提交过小并想等到以后再提交，或者你是否认为它过大并想更早地提交。这是主观判断题，因此并没有任何明确的正确或错误答案，但在每种情况下请选出你认为最好的答案。</p><ul><li>你已经花了一周来开发一项新功能，现在，你提交添加这项新功能所需的所有更改。从你开始开发它以来，你一直没有进行提交。</li><li>你在 README 中发现了三处打字错误。你改正并提交第一处错误。</li><li>你已经花了一小时来开发一项新功能，现在，你提交添加这项新功能所需的所有更改。</li><li>你改正了不同函数中的两个小错误，然后同时提交两者。<img src="/2019/02/15/git-and-github-tutorial/Selection_001.png" title="图片的说明"></li></ul><h3 id="操纵提交历史"><a href="#操纵提交历史" class="headerlink" title="操纵提交历史"></a>操纵提交历史</h3><p><strong>查看提交历史</strong>：git log<br>每个commit都有一个ID<br>要停止查看 git log 的输出，请按 q（表示退出）。</p><p><strong>比较两个commit的repo差异</strong>：<br>git diff commitID1 commitID2</p><p><strong>比较working directory中的文件和staging area中文件的差异</strong><br>git diff</p><p><strong>比较staging area和最新commit中文件的差异</strong><br>git diff staged</p><p><strong>检出代码的旧版本</strong><br>git checkout id<br>在Git中检出commit是指讲所有文件重置到进行该commit时的状态<br>使用时机：当出现了bug，但不知道时哪个commit造成的</p><p><strong>回到最新版本：</strong><br>git checkout master</p><h3 id="创建分支"><a href="#创建分支" class="headerlink" title="创建分支"></a>创建分支</h3><p>如果想尝试一种实验性的功能（不确定是否可行)，试试分支<br><img src="/2019/02/15/git-and-github-tutorial/Selection_003.png"></p><p>当你与他人合作时，也可以使用分支，使项目保持条理。如果你与合作者都在同一分支上进行更改，你们就无法轻松地同时创建不同的功能。<br>共同开发一个项目的常见工作流程：为每个功能或修复bug创建新的分支。这样，当多个人同时进行更改时，他们每个人都可以在之后检出他们的分支继续工作，不用担心某些内容出现变化。之后，当完成一项功能或修复bug后，相关作者可以更新master分支使其指向新分支的顶点。或者，如果master分支在此期间也出现了更改，可以使用git merge将自己的分支与master分支合并</p><p><strong>查看已有分支</strong><br>git branch</p><p><strong>创建分支</strong><br>git branch xxx</p><p><strong>进入指定分支</strong><br>分支左边的*表示这是当前检出的分支。<br>git checkout xxx</p><p><strong>合并分支</strong><br>如果想将 branch2 合并到 branch1 中，只需键入 git checkout branch1，然后键入 git merge branch2 即可。键入 git merge branch1 branch2 的唯一原因是，它能帮助你对要合并的分支更加心中有数。</p><p>另外，由于是合并两个分支，因此在命令行中按何顺序键入分支并不重要。关键是要记住，git merge 始终将所有指定的分支合并到当前检出的分支中，并为该分支新建一个提交。</p><p>如果想将 branch2 合并到 branch1 中，只需键入 git checkout branch1，然后键入 git merge branch2 即可。键入 git merge branch1 branch2 的唯一原因是，它能帮助你对要合并的分支更加心中有数。</p><p>另外，由于是合并两个分支，因此在命令行中按何顺序键入分支并不重要。关键是要记住，git merge 始终将所有指定的分支合并到当前检出的分支中，并为该分支新建一个提交。</p><p><strong>合并冲突</strong><br>果收到类似以下所示的消息：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Auto-merging game.js</span><br><span class="line">CONFLICT (content): Merge conflict in game.js</span><br><span class="line">Automatic merge failed; fix conflicts and then commit the result.</span><br></pre></td></tr></table></figure></p><p>要修复此问题，请完成以下步骤：</p><ol><li>运行 git merge –abort，将文件恢复到你开始合并之前的状态</li><li>仔细检查文件的状态。如果在检出 master 分支时运行 git log，则应看到 Caroline 的“Add color”提交是第二新的提交，而最新的提交应为你修复 bullet 错误的提交。如果使用 git diff 将你的提交与 Caroline 的提交进行对比，你的提交应在第 424 行引入 this.delayBeforeBullet = 10; 这行代码。应仅使用空格（无制表符）使该行的缩进程度与其下面一行相同，而且该行之后应无空格。</li><li>在文件处于正确的状态后，利用你所做的更改新建一个提交。</li><li>重新尝试合并。</li></ol><p><strong>何时使用分支</strong><br>master branch： your production branch<br>dev branch<br>exp brach</p><h1 id="使用Github协作"><a href="#使用Github协作" class="headerlink" title="使用Github协作"></a>使用Github协作</h1><p><strong>查看所有远程仓库</strong>：git remote<br><strong>添加Github上的仓库当做远程仓库</strong>：git remote add repo_name(通常命名为origin) URL<br><strong>向远程仓库发送更改</strong>： git push repo_name local_branch_name<br>example: git push origin master<br><strong>从远程仓库拉取更改</strong>：git pull repo_name(通常命名为origin) remote_branch_name</p><p><strong>协作引发冲突</strong><br><img src="/2019/02/15/git-and-github-tutorial/Selection_012.png" title="注释"><br>当遇到上图情况时，在本地使用git pull命令会使commits变为ac5和df6，而b3c丢失了。当这两个仓库中都存在需要包含的更改时，</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;本篇博客为udacity课程&lt;a href=&quot;https://classroom.udacity.com/courses/ud775&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;如何使用Git和Github&lt;/a&gt;的学习笔记。&lt;/p&gt;
+&lt;h1 id=&quot;I
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://yoursite.com/2019/02/03/hello-world/"/>
+    <id>http://yoursite.com/2019/02/03/hello-world/</id>
+    <published>2019-02-03T07:10:22.873Z</published>
+    <updated>2019-02-03T07:10:22.873Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>
